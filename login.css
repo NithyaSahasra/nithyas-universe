@@ -1,0 +1,379 @@
+/*
+ * Nithya's Universe - Login Stylesheet
+ */
+body {
+    background: linear-gradient(135deg, #FFF5F8, #FFE4EE, #FFD6E8, #FFC2DC, #FF9CC5);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    perspective: 1000px;
+}
+/* Background animated elements */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.clouds-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/cloud1.png'), url('../images/cloud2.png');
+    background-position: 10% 20%, 80% 60%;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    pointer-events: none;
+    animation: cloudsFloat 20s linear infinite;
+}
+@keyframes cloudsFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.05); }
+}
+/* Login container and card */
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    z-index: 10;
+}
+.login-card {
+    background: rgba(255, 245, 248, 0.45);
+    border: 2.5px solid rgba(255, 115, 175, 0.3);
+    border-radius: 24px;
+    padding: 40px 30px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 16px 40px rgba(255, 115, 175, 0.2);
+    text-align: center;
+    position: relative;
+    overflow: visible;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+}
+.login-card:hover {
+    box-shadow: 0 20px 50px rgba(255, 115, 175, 0.3);
+}
+/* Stickers decoration */
+.card-sticker {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+    z-index: 5;
+    pointer-events: none;
+    animation: stickerWiggle 4s ease-in-out infinite;
+}
+.sticker-bow {
+    top: -30px;
+    right: -20px;
+    background-image: url('../images/sticker-bow.png');
+    transform: rotate(15deg);
+}
+@keyframes stickerWiggle {
+    0%, 100% { transform: rotate(15deg) scale(1); }
+    50% { transform: rotate(20deg) scale(1.05); }
+}
+/* Logo & Title */
+.logo-container {
+    margin-bottom: 30px;
+}
+.logo-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #FF73AF;
+    margin: 5px 0;
+    text-shadow: 2px 2px 4px rgba(255, 115, 175, 0.25);
+}
+.logo-subtitle {
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #b58095;
+    margin: 0;
+}
+.sparkle-icon {
+    font-size: 1.8rem;
+    display: inline-block;
+    animation: spinSparkle 4s linear infinite;
+}
+@keyframes spinSparkle {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+/* Lock Icon Wrapper */
+.lock-wrapper {
+    margin: 20px auto;
+}
+.lock-icon {
+    font-size: 3.5rem;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    margin: 0 auto;
+    box-shadow: inset 0 2px 10px rgba(255, 115, 175, 0.2), 0 4px 15px rgba(255, 115, 175, 0.1);
+    border: 2px dashed #FF9CC5;
+    animation: lockFloat 3s ease-in-out infinite;
+    transition: all 0.5s ease;
+}
+@keyframes lockFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(3deg); }
+}
+/* Input Styles */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+#password-input {
+    width: 100%;
+    padding: 14px 20px;
+    padding-right: 50px;
+    box-sizing: border-box;
+    border: 2px solid #FFC2DC;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.85);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #5d4a51;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 194, 220, 0.1);
+}
+#password-input:focus {
+    border-color: #FF73AF;
+    box-shadow: 0 4px 15px rgba(255, 115, 175, 0.25);
+    background: #ffffff;
+}
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #FF9CC5;
+    outline: none;
+    transition: color 0.3s;
+}
+.toggle-password:hover {
+    color: #FF73AF;
+}
+/* Unlock button */
+.unlock-btn {
+    width: 100%;
+    padding: 14px 25px;
+    background: linear-gradient(135deg, #FF9CC5 0%, #FF73AF 100%);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255, 115, 175, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.unlock-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 115, 175, 0.6);
+    background: linear-gradient(135deg, #FF73AF 0%, #FF9CC5 100%);
+}
+.unlock-btn:active {
+    transform: translateY(-1px);
+}
+/* Footer / recovery link */
+.login-footer {
+    margin-top: 20px;
+}
+.forgot-pwd-btn {
+    background: none;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    color: #b58095;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+.forgot-pwd-btn:hover {
+    color: #FF73AF;
+}
+/* Modals */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(93, 74, 81, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-card {
+    background: #FFF5F8;
+    border: 3px solid #FFC2DC;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 380px;
+    padding: 35px 25px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    position: relative;
+    transform: scale(0.8);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.modal-overlay.active .modal-card {
+    transform: scale(1);
+}
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #FF9CC5;
+    transition: color 0.3s;
+}
+.close-modal:hover {
+    color: #FF73AF;
+}
+.sticker-heart {
+    position: absolute;
+    top: -25px;
+    left: -20px;
+    width: 60px;
+    height: 60px;
+    background-image: url('../images/sticker-heart.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotate(-10deg);
+}
+.modal-card h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #FF73AF;
+    font-size: 2rem;
+    margin-top: 0;
+}
+.modal-desc {
+    font-size: 0.85rem;
+    color: #b58095;
+    margin-bottom: 20px;
+}
+.question-box {
+    background: #FFE4EE;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-left: 4px solid #FF73AF;
+    text-align: left;
+}
+.question-box strong {
+    font-size: 0.85rem;
+    color: #FF73AF;
+    display: block;
+    margin-bottom: 4px;
+}
+.security-question {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.modal-input-group {
+    margin-bottom: 20px;
+}
+.modal-input-group input {
+    width: 100%;
+    padding: 12px 18px;
+    border: 2px solid #FFC2DC;
+    border-radius: 25px;
+    background: white;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    box-sizing: border-box;
+    transition: border 0.3s;
+}
+.modal-input-group input:focus {
+    border-color: #FF73AF;
+}
+.modal-submit-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background: #FF73AF;
+    color: white;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 115, 175, 0.3);
+    transition: background 0.3s, transform 0.2s;
+}
+.modal-submit-btn:hover {
+    background: #FF9CC5;
+    transform: translateY(-2px);
+}
+.hidden {
+    display: none;
+}
+.success-text {
+    color: #2e7d32;
+    font-size: 0.85rem;
+    margin: 10px 0;
+    font-weight: 600;
+}
+/* Lock animations */
+.lock-unlocked {
+    background: #FFE4EE;
+    border-color: #2e7d32;
+    box-shadow: 0 0 25px rgba(46, 125, 50, 0.4);
+    animation: lockPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+@keyframes lockPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1.1); }
+}
+/* Custom fade effects */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
