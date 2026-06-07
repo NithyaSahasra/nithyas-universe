@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nithya's Universe - Lock Screen</title>
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/login.css">
+    <!-- JS files -->
+    <script src="js/global.js"></script>
+</head>
+<body>
+    <!-- Background Animation Containers -->
+    <div class="clouds-bg"></div>
+    
+    <!-- Login Wrapper -->
+    <div class="login-container">
+        <!-- Glassmorphism Card -->
+        <div class="login-card reveal">
+            <!-- Decorative Bow / Sticker -->
+            <div class="card-sticker sticker-bow"></div>
+            
+            <div class="logo-container">
+                <span class="sparkle-icon">✨</span>
+                <h1 class="logo-title">Nithya's Universe</h1>
+                <p class="logo-subtitle">A Magical Digital Memory Palace</p>
+            </div>
+            
+            <div class="lock-wrapper">
+                <!-- Lock Icon that animates when correct -->
+                <div class="lock-icon" id="lock-icon">🔒</div>
+            </div>
+            
+            <form id="login-form" onsubmit="event.preventDefault();">
+                <div class="input-group">
+                    <input type="password" id="password-input" placeholder="Enter Magic Password..." required>
+                    <button type="button" class="toggle-password" id="toggle-password-btn" title="Show/Hide Password">👁️</button>
+                </div>
+                
+                <button type="submit" class="unlock-btn" id="unlock-btn">
+                    <span>Unlock Universe</span> 🌸
+                </button>
+            </form>
+            
+            <div class="login-footer">
+                <button type="button" class="forgot-pwd-btn" id="forgot-pwd-btn">Forgot Password?</button>
+            </div>
+        </div>
+    </div>
+    <!-- Security Question Modal -->
+    <div class="modal-overlay" id="recovery-modal">
+        <div class="modal-card">
+            <button type="button" class="close-modal" id="close-modal-btn">✖</button>
+            <div class="modal-sticker sticker-heart"></div>
+            <h2>🌸 Password Recovery 🌸</h2>
+            <p class="modal-desc">Answer the security question to reset your password.</p>
+            
+            <div class="question-box">
+                <strong>Question:</strong>
+                <p class="security-question">What is my favourite color?</p>
+            </div>
+            
+            <div class="modal-input-group">
+                <input type="text" id="security-answer" placeholder="Type your answer here..." autocomplete="off">
+            </div>
+            
+            <!-- Hidden Reset password input group -->
+            <div id="reset-password-group" class="hidden">
+                <p class="success-text">Correct answer! Enter your new password below:</p>
+                <div class="modal-input-group">
+                    <input type="password" id="new-password" placeholder="New Password...">
+                </div>
+            </div>
+            
+            <button type="button" class="modal-submit-btn" id="modal-submit-btn">Verify Answer</button>
+        </div>
+    </div>
+    <script src="js/login.js"></script>
+</body>
+</html>
