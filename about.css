@@ -1,0 +1,239 @@
+/*
+ * Nithya's Universe - About Page (Diary) Stylesheet
+ */
+body {
+    background: radial-gradient(circle at center, #FFF5F8, #FFE4EE, #FFD6E8);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+/* Notebook Container */
+.diary-container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: center;
+}
+.notebook {
+    background: #FFF5F8;
+    border: 8px solid #FF9CC5;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(255, 115, 175, 0.25), inset 0 0 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    position: relative;
+    width: 100%;
+    min-height: 550px;
+    box-sizing: border-box;
+}
+/* Notebook Binding / Spirals */
+.notebook-binding {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    bottom: 5%;
+    width: 24px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 10;
+    pointer-events: none;
+}
+.spiral {
+    width: 30px;
+    height: 15px;
+    border: 3.5px solid #E0D0D5;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffffff, #dcdcdc);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+    transform: rotate(-15deg);
+}
+/* Notebook Pages */
+.notebook-page {
+    width: 50%;
+    padding: 35px 35px 35px 45px;
+    box-sizing: border-box;
+    position: relative;
+    background-color: #ffffff;
+    /* Lined Paper effect */
+    background-image: repeating-linear-gradient(transparent, transparent 29px, #FFE4EE 29px, #FFE4EE 30px);
+    line-height: 30px;
+}
+.left-page {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    padding-right: 35px;
+    padding-left: 35px;
+}
+.right-page {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding-left: 45px;
+    /* Transition animation when tabs switch */
+    transform-origin: left center;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease;
+}
+/* Page Turning Animation Class */
+.page-turning {
+    transform: rotateY(-180deg);
+    opacity: 0;
+}
+/* Diary Title (Handwritten look) */
+.diary-title {
+    font-family: 'Dancing Script', cursive;
+    color: #FF73AF;
+    font-size: 2.2rem;
+    margin: 0 0 20px 0;
+    text-shadow: 1px 1px 2px rgba(255, 115, 175, 0.15);
+    line-height: 1.2;
+}
+/* Profile Photo Frame */
+.profile-photo-frame {
+    width: 150px;
+    height: 150px;
+    margin: 15px auto 25px;
+    border: 6px solid #fff;
+    box-shadow: 0 8px 20px rgba(255, 115, 175, 0.2);
+    transform: rotate(-3deg);
+    transition: transform 0.3s;
+    background: #fff;
+}
+.profile-photo-frame:hover {
+    transform: rotate(2deg) scale(1.05);
+}
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Typewriter & Handwritten body text */
+.typewriter-text, .diary-lines-content {
+    font-family: 'Caveat', cursive;
+    font-size: 1.45rem;
+    color: #5d4a51;
+    text-align: left;
+}
+.diary-date {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    color: #FF9CC5;
+}
+.hologram-decor {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2rem;
+    color: #FF9CC5;
+    animation: textGlow 2s infinite alternate;
+}
+@keyframes textGlow {
+    from { text-shadow: 0 0 4px rgba(255, 115, 175, 0.2); }
+    to { text-shadow: 0 0 8px rgba(255, 115, 175, 0.6), 0 0 12px rgba(255, 115, 175, 0.4); }
+}
+/* Stickers on Diary */
+.diary-sticker {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 8;
+    filter: drop-shadow(1px 2px 3px rgba(0, 0, 0, 0.1));
+}
+.sticker-star {
+    background-image: url('../images/sticker-star.png');
+}
+.sticker-heart {
+    background-image: url('../images/sticker-heart.png');
+}
+.sticker-bow {
+    background-image: url('../images/sticker-bow.png');
+}
+/* Tabs styles (aligned vertically on the right side) */
+.notebook-tabs {
+    position: absolute;
+    right: -75px;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.diary-tab {
+    background: #FFC2DC;
+    border: 2px solid #FF9CC5;
+    border-left: none;
+    border-radius: 0 12px 12px 0;
+    padding: 10px 14px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    box-shadow: 3px 3px 8px rgba(255, 115, 175, 0.15);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    outline: none;
+    writing-mode: horizontal-tb;
+    width: 75px;
+    text-align: left;
+}
+.diary-tab:hover {
+    padding-left: 20px;
+    background: #FF73AF;
+}
+.diary-tab.active {
+    background: #FF73AF;
+    border-color: #FF73AF;
+    padding-left: 24px;
+    box-shadow: 4px 4px 12px rgba(255, 115, 175, 0.3);
+}
+/* Responsive diary */
+@media(max-width: 850px) {
+    .notebook {
+        flex-direction: column;
+        min-height: auto;
+        border-right-width: 8px;
+    }
+    .notebook-page {
+        width: 100%;
+        min-height: 300px;
+    }
+    .left-page {
+        border-radius: 12px 12px 0 0;
+        border-right: none;
+        border-bottom: 2px dashed #FFD6E8;
+    }
+    .right-page {
+        border-radius: 0 0 12px 12px;
+        padding-left: 35px;
+    }
+    .notebook-binding {
+        display: none; /* Hide binding on vertical mobile view */
+    }
+    .notebook-tabs {
+        position: relative;
+        right: 0;
+        top: 0;
+        flex-direction: row;
+        justify-content: center;
+        margin: 20px 0;
+        width: 100%;
+    }
+    .diary-tab {
+        border: 2px solid #FF9CC5;
+        border-radius: 12px;
+        width: auto;
+        text-align: center;
+    }
+    .diary-tab.active {
+        padding-left: 14px;
+    }
+}
