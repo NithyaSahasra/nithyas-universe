@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nithya's Universe - Future Me</title>
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/future.css">
+    <!-- JS files -->
+    <script src="js/global.js"></script>
+</head>
+<body>
+    <!-- Canvas for glowing magic star particles -->
+    <canvas id="magic-canvas"></canvas>
+    <div class="future-container">
+        <header class="page-header reveal">
+            <h1 class="page-title">🔮 Crystal Palace</h1>
+            <p class="page-subtitle">Gaze into the magical crystal orb to summon Nithya's goals and predictions for the future!</p>
+        </header>
+        <!-- Crystal Ball Area -->
+        <div class="crystal-stage reveal">
+            <!-- The Magic Orb -->
+            <div class="crystal-orb-wrapper" id="orb-trigger">
+                <div class="crystal-orb">
+                    <!-- Glass glare overlay -->
+                    <div class="orb-glare"></div>
+                    <!-- Inside text box -->
+                    <div class="orb-vision" id="orb-vision-text">Click to Summon Future Vision...</div>
+                </div>
+                <!-- Backdrop Base -->
+                <div class="orb-base"></div>
+            </div>
+            
+            <p class="click-instruction">✨ Click or Tap the Crystal Orb to conjure a vision ✨</p>
+        </div>
+        <!-- Submit Future Goal Form -->
+        <div class="vision-form-box reveal">
+            <h3>💫 Send a Goal to the Stars</h3>
+            <p style="font-size: 0.85rem; color: #b58095; margin-bottom: 15px;">Cast a new aspiration into the crystal palace timeline.</p>
+            
+            <form id="vision-form" onsubmit="event.preventDefault();">
+                <div class="form-row">
+                    <input type="text" id="vision-input" placeholder="Type a future goal or dream prediction..." required autocomplete="off">
+                    <button type="submit" class="cast-btn">Cast Spell ✨</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- JS files -->
+    <script src="js/future.js"></script>
+</body>
+</html>
