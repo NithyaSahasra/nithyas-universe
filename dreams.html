@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nithya's Universe - Dream Board</title>
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/dreams.css">
+    <!-- JS files -->
+    <script src="js/global.js"></script>
+</head>
+<body>
+    <div class="clouds-bg-container">
+        <!-- Floating slow clouds -->
+        <div class="dream-cloud dc-1"></div>
+        <div class="dream-cloud dc-2"></div>
+        <div class="dream-cloud dc-3"></div>
+    </div>
+    <div class="dreams-container">
+        <header class="page-header reveal">
+            <h1 class="page-title">🎀 My Dream Board</h1>
+            <p class="page-subtitle">My visual playground of ambitions, aspirations, and wishes.</p>
+            <button class="add-dream-btn" id="open-add-dream">✨ Pin A Dream ✨</button>
+        </header>
+        <!-- Masonry Grid -->
+        <div class="dream-masonry" id="dream-masonry-grid">
+            <!-- Dynamic dream cards render here -->
+        </div>
+    </div>
+    <!-- Add Dream Modal -->
+    <div class="dream-modal-overlay" id="add-dream-modal">
+        <div class="add-dream-card">
+            <button class="close-dream-modal" id="close-dream-modal">✖</button>
+            <h2>💖 Pin a New Dream 💖</h2>
+            <p style="font-size: 0.85rem; color: #b58095;">Visualize it, pin it, achieve it!</p>
+            
+            <form id="add-dream-form" onsubmit="event.preventDefault();">
+                <div class="form-group">
+                    <label for="dream-title">Dream Title:</label>
+                    <input type="text" id="dream-title" placeholder="e.g. World Tour, Google..." required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label for="dream-category">Category:</label>
+                    <select id="dream-category">
+                        <option value="Career">Career / Coding 💻</option>
+                        <option value="Travel">Travel ✈️</option>
+                        <option value="Life">Lifestyle / Dream House 🏡</option>
+                        <option value="Creative">Creative / Startup 🎨</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dream-image">Card Backdrop Theme:</label>
+                    <select id="dream-image">
+                        <option value="images/polaroid3.jpg">Starry Night Sky</option>
+                        <option value="images/polaroid1.jpg">Cherry Blossom Pink</option>
+                        <option value="images/polaroid5.jpg">Sunset Dreams</option>
+                        <option value="images/polaroid6.jpg">Golden Sparkle</option>
+                        <option value="images/memory2.jpg">Digital Matrix Pink</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dream-desc">Description / Affirmation:</label>
+                    <textarea id="dream-desc" rows="3" placeholder="Write your goals or feelings about this dream..." required></textarea>
+                </div>
+                
+                <button type="submit" class="pin-dream-btn">Pin to Board! 📌</button>
+            </form>
+        </div>
+    </div>
+    <!-- JS files -->
+    <script src="js/dreams.js"></script>
+</body>
+</html>
