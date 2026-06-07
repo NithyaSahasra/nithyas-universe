@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nithya's Universe - Friendship Garden</title>
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/people.css">
+    <!-- JS files -->
+    <script src="js/global.js"></script>
+</head>
+<body>
+    <div class="garden-container">
+        <header class="page-header reveal">
+            <h1 class="page-title">☁️ Friendship Garden</h1>
+            <p class="page-subtitle">A sanctuary for the beautiful souls who fill my life with joy. Click a flower to make it bloom!</p>
+            <button class="plant-seed-btn" id="open-plant-btn">🌱 Plant a Friend Seed 🌱</button>
+        </header>
+        <!-- Garden Plot -->
+        <div class="garden-plot" id="garden-plot-grid">
+            <!-- Dynamic flower cards go here -->
+        </div>
+    </div>
+    <!-- Friend Detail Modal/Viewer (Shows story in a scrapbook bubble) -->
+    <div class="flower-overlay" id="friend-detail-modal">
+        <div class="friend-story-bubble">
+            <button class="close-bubble" id="close-bubble-btn">✖</button>
+            <div class="bubble-decor">🌷 ✨ 🌷</div>
+            
+            <div class="friend-profile-section">
+                <div class="friend-avatar-frame">
+                    <img src="" alt="Friend Avatar" id="bubble-avatar">
+                </div>
+                <h2 class="friend-name" id="bubble-name">Friend Name</h2>
+                <span class="friend-role" id="bubble-role">Best Friend</span>
+            </div>
+            
+            <div class="bubble-divider"></div>
+            
+            <p class="friend-story" id="bubble-story">
+                How we met, special memories we share, and why they are in my universe garden.
+            </p>
+        </div>
+    </div>
+    <!-- Plant Seed Modal -->
+    <div class="plant-modal-overlay" id="plant-modal">
+        <div class="plant-card">
+            <button class="close-plant-modal" id="close-plant-btn">✖</button>
+            <h2>🌱 Plant a New Friend Seed 🌱</h2>
+            <p style="font-size: 0.85rem; color: #b58095; margin-bottom: 20px;">Grow a new friendship flower in Nithya's garden.</p>
+            
+            <form id="plant-friend-form" onsubmit="event.preventDefault();">
+                <div class="form-group">
+                    <label for="fri-name">Friend's Name:</label>
+                    <input type="text" id="fri-name" placeholder="e.g. Diya, Sarah..." required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fri-role">Relationship / Role:</label>
+                    <input type="text" id="fri-role" placeholder="e.g. High School Bestie, Coding Buddy..." required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fri-flower">Flower Type:</label>
+                    <select id="fri-flower">
+                        <option value="images/flower1.png">Pink Lily (flower1.png)</option>
+                        <option value="images/flower2.png">Sunny Sunflower (flower2.png)</option>
+                        <option value="images/flower3.png">Cute Daisy (flower3.png)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fri-story">Your Friendship Story:</label>
+                    <textarea id="fri-story" rows="4" placeholder="How you met, favorite memories together..." required></textarea>
+                </div>
+                
+                <button type="submit" class="plant-btn">Plant seed! 🌸</button>
+            </form>
+        </div>
+    </div>
+    <!-- JS files -->
+    <script src="js/people.js"></script>
+</body>
+</html>
