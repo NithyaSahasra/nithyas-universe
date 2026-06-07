@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nithya's Universe - Music Corner</title>
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/music.css">
+    <!-- JS files -->
+    <script src="js/global.js"></script>
+</head>
+<body>
+    <div class="music-outer-container">
+        <header class="page-header reveal">
+            <h1 class="page-title">🎵 Music Corner</h1>
+            <p class="page-subtitle">Spin the pink vinyl or play a cassette. Beautiful retro chiptune synth melodies await!</p>
+        </header>
+        <!-- Music Deck Console -->
+        <div class="console-box reveal">
+            
+            <!-- Left Panel: Cassette Player -->
+            <div class="deck-panel cassette-deck">
+                <div class="cassette-title">Nithya's Playlist Vol. 1</div>
+                <div class="cassette-case">
+                    <img src="images/cassette.png" alt="Retro Cassette" class="cassette-img" id="cassette-tape">
+                    <!-- Spool wheels inside tape -->
+                    <div class="spool spool-left" id="spool-l"></div>
+                    <div class="spool spool-right" id="spool-r"></div>
+                </div>
+                
+                <!-- Cassette controls -->
+                <div class="controls-rack">
+                    <button class="music-btn" id="prev-btn" title="Previous Track">⏮</button>
+                    <button class="music-btn play-btn" id="play-btn" title="Play/Pause">▶</button>
+                    <button class="music-btn" id="next-btn" title="Next Track">⏭</button>
+                </div>
+            </div>
+            <!-- Right Panel: Vinyl Deck -->
+            <div class="deck-panel vinyl-deck">
+                <div class="vinyl-platter">
+                    <img src="images/vinyl.png" alt="Vinyl Record" class="vinyl-img" id="vinyl-disc">
+                    <!-- Center spindle hole -->
+                    <div class="vinyl-spindle"></div>
+                </div>
+                <div class="vinyl-tonearm" id="tone-arm"></div>
+            </div>
+        </div>
+        <!-- Synthesizer Controls / Info -->
+        <div class="synth-details reveal">
+            <h3 class="track-title-label" id="current-track-name">Track: Dreamy Pink Skies</h3>
+            
+            <div class="sound-adjusters">
+                <div class="slider-group">
+                    <label for="volume-control">Volume 🌸</label>
+                    <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.5">
+                </div>
+                <div class="slider-group">
+                    <label for="tempo-control">Tempo ⚡</label>
+                    <input type="range" id="tempo-control" min="60" max="180" step="10" value="120">
+                </div>
+            </div>
+            
+            <div class="note-emitters" id="emit-container"></div>
+        </div>
+    </div>
+    <!-- JS files -->
+    <script src="js/music.js"></script>
+</body>
+</html>
