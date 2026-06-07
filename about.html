@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nithya's Universe - About Me</title>
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/about.css">
+    <!-- JS files -->
+    <script src="js/global.js"></script>
+</head>
+<body>
+    <div class="diary-container">
+        <!-- Notebook Book Design -->
+        <div class="notebook" id="notebook">
+            
+            <!-- Book Spiral Binding (Center) -->
+            <div class="notebook-binding">
+                <div class="spiral"></div>
+                <div class="spiral"></div>
+                <div class="spiral"></div>
+                <div class="spiral"></div>
+                <div class="spiral"></div>
+                <div class="spiral"></div>
+                <div class="spiral"></div>
+                <div class="spiral"></div>
+                <div class="spiral"></div>
+                <div class="spiral"></div>
+            </div>
+            <!-- Left Page -->
+            <div class="notebook-page left-page" id="left-page">
+                <!-- Stickers -->
+                <div class="diary-sticker sticker-star" style="top: 15px; left: 15px;"></div>
+                <div class="diary-sticker sticker-heart" style="bottom: 20px; right: 20px;"></div>
+                
+                <div class="page-content">
+                    <h2 class="diary-title">Dear Diary,</h2>
+                    <div class="profile-photo-frame">
+                        <img src="images/hero-girl.png" alt="Nithya Avatar" class="profile-photo">
+                    </div>
+                    <div class="typewriter-text" id="left-text-1">
+                        Today I created my own universe. A secret space to store my dreams, memories, achievements, and the people who fill my life with smiles...
+                    </div>
+                    <div class="diary-date">June 7th, 2026 🌸</div>
+                </div>
+            </div>
+            <!-- Right Page (Flips or updates content) -->
+            <div class="notebook-page right-page" id="right-page">
+                <!-- Sticker -->
+                <div class="diary-sticker sticker-bow" style="top: 15px; right: 15px;"></div>
+                
+                <div class="page-content" id="right-page-content">
+                    <!-- Dynamic Page Content based on tab -->
+                    <h2 class="diary-title" id="section-title">🌸 My Story</h2>
+                    
+                    <div class="diary-lines-content">
+                        <p id="typewriter-body">
+                            Hi, I'm Nithya! Welcome to my little magical corner of the web. I'm a dreamer, developer, and memory collector. I love coding, starry nights, warm cups of tea, and pastel pink aesthetics. This memory palace represents everything that is close to my heart. Let's make every moment count!
+                        </p>
+                    </div>
+                    
+                    <div class="hologram-decor">✨ Keep Shining ✨</div>
+                </div>
+            </div>
+            
+            <!-- Navigation Tabs (Sticking out of notebook) -->
+            <div class="notebook-tabs">
+                <button class="diary-tab active" data-section="story">🎀 Story</button>
+                <button class="diary-tab" data-section="facts">⭐ Facts</button>
+                <button class="diary-tab" data-section="hobbies">🎨 Hobbies</button>
+                <button class="diary-tab" data-section="favorites">🧁 Faves</button>
+            </div>
+        </div>
+    </div>
+    <!-- JS files -->
+    <script src="js/about.js"></script>
+</body>
+</html>
