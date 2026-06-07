@@ -1,0 +1,285 @@
+/*
+ * Nithya's Universe - Music Corner Stylesheet
+ */
+body {
+    background: radial-gradient(circle at center, #FFF5F8, #FFE4EE, #FFD6E8);
+    min-height: 100vh;
+}
+.music-outer-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 20px 60px;
+}
+.page-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.page-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.2rem;
+    color: #FF73AF;
+    margin: 0 0 10px;
+    text-shadow: 2px 2px 4px rgba(255, 115, 175, 0.2);
+}
+.page-subtitle {
+    font-size: 1.1rem;
+    color: #b58095;
+    margin: 0;
+}
+/* Console Chassis Box */
+.console-box {
+    background: rgba(255, 245, 248, 0.45);
+    border: 3px solid rgba(255, 115, 175, 0.35);
+    border-radius: 28px;
+    padding: 40px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 15px 40px rgba(255, 115, 175, 0.2);
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.deck-panel {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Cassette Deck Panel */
+.cassette-deck {
+    border-right: 2px dashed rgba(255, 115, 175, 0.2);
+    padding-right: 40px;
+}
+.cassette-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #FF73AF;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+.cassette-case {
+    position: relative;
+    width: 250px;
+    height: 150px;
+    background: #FFF5F8;
+    border: 3px solid #FFC2DC;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(255, 115, 175, 0.15);
+    overflow: hidden;
+}
+.cassette-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Cassette Spool gears overlays */
+.spool {
+    width: 20px;
+    height: 20px;
+    background: repeating-conic-gradient(from 0deg, #505050 0deg 30deg, #999 30deg 60deg);
+    border-radius: 50%;
+    position: absolute;
+    top: 67px;
+    z-index: 5;
+}
+.spool-left { left: 95px; }
+.spool-right { left: 135px; }
+/* Rotating spool anim */
+@keyframes spinSpool {
+    to { transform: rotate(360deg); }
+}
+.spool-spinning {
+    animation: spinSpool 2s linear infinite;
+}
+/* Controls buttons */
+.controls-rack {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+.music-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid #FFC2DC;
+    background: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 115, 175, 0.1);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.music-btn:hover {
+    transform: translateY(-2px);
+    background: #FFE4EE;
+    border-color: #FF73AF;
+}
+.play-btn {
+    width: 55px;
+    height: 55px;
+    background: #FF73AF;
+    color: white;
+    border-color: #FF73AF;
+    font-size: 1.4rem;
+    box-shadow: 0 6px 15px rgba(255, 115, 175, 0.3);
+}
+.play-btn:hover {
+    background: #FF9CC5;
+    border-color: #FF9CC5;
+    color: white;
+}
+/* Vinyl Platter Panel */
+.vinyl-deck {
+    position: relative;
+    padding-left: 10px;
+}
+.vinyl-platter {
+    position: relative;
+    width: 230px;
+    height: 230px;
+    background: #FFE4EE;
+    border: 4px solid #FFC2DC;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.vinyl-img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+}
+.vinyl-spindle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #FF73AF;
+    border-radius: 50%;
+    border: 2px solid white;
+    z-index: 10;
+}
+@keyframes spinVinyl {
+    to { transform: rotate(360deg); }
+}
+.vinyl-spinning {
+    animation: spinVinyl 3.5s linear infinite;
+}
+/* Tonearm needle */
+.vinyl-tonearm {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 80px;
+    height: 120px;
+    background-image: linear-gradient(to bottom, #dcdcdc, #8c8c8c);
+    clip-path: polygon(0 0, 10px 0, 10px 100px, 40px 110px, 38px 120px, 0 100px);
+    transform-origin: top right;
+    transform: rotate(0deg); /* 0deg: away, 28deg: on vinyl */
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 20;
+}
+.tonearm-active {
+    transform: rotate(25deg);
+}
+/* Sound Adjusters */
+.synth-details {
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid #FFC2DC;
+    border-radius: 20px;
+    padding: 25px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.track-title-label {
+    font-family: 'Poppins', sans-serif;
+    color: #FF73AF;
+    margin: 0 0 20px;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+.sound-adjusters {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+.slider-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+}
+.slider-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #b58095;
+    margin-bottom: 8px;
+}
+.slider-group input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: #FFE4EE;
+    border-radius: 5px;
+    outline: none;
+}
+.slider-group input[type="range"]::-webkit-scrollbar {
+    display: none;
+}
+.slider-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #FF73AF;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(255, 115, 175, 0.3);
+    transition: transform 0.1s;
+}
+.slider-group input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+/* Floating musical notes */
+.floating-note {
+    position: absolute;
+    pointer-events: none;
+    color: #FF73AF;
+    font-size: 1.5rem;
+    animation: riseNote 2s ease-out forwards;
+    z-index: 100;
+}
+@keyframes riseNote {
+    0% { transform: translateY(0) scale(0.6) rotate(0deg); opacity: 1; }
+    50% { transform: translateY(-60px) translateX(20px) scale(1) rotate(15deg); }
+    100% { transform: translateY(-120px) translateX(-10px) scale(0.8) rotate(-15deg); opacity: 0; }
+}
+/* Responsive Console layout */
+@media(max-width: 768px) {
+    .console-box {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+    .deck-panel {
+        width: 100%;
+    }
+    .cassette-deck {
+        border-right: none;
+        border-bottom: 2px dashed rgba(255, 115, 175, 0.2);
+        padding-right: 0;
+        padding-bottom: 30px;
+        margin-bottom: 20px;
+    }
+    .vinyl-tonearm {
+        top: 0;
+        right: 40px;
+    }
+}
