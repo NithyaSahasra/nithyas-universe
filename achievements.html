@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nithya's Universe - Achievements</title>
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/achievements.css">
+    <!-- JS files -->
+    <script src="js/global.js"></script>
+</head>
+<body>
+    <!-- Canvas for Confetti explosions -->
+    <canvas id="confetti-canvas"></canvas>
+    <div class="trophy-room-container">
+        <header class="page-header reveal">
+            <h1 class="page-title">🏆 Princess Trophy Room</h1>
+            <p class="page-subtitle">A shining gallery of accomplishments, awards, and milestones. Click to flip and read!</p>
+            <button class="add-trophy-btn" id="open-add-trophy">✨ Log Achievement ✨</button>
+        </header>
+        <!-- Shelf 1 Container -->
+        <div class="shelf-container">
+            <div class="trophy-grid" id="shelf-1-grid">
+                <!-- Dynamic cards sit on shelf -->
+            </div>
+            <!-- Wooden/Pink Shelf Board -->
+            <div class="shelf-board"></div>
+        </div>
+        <!-- Shelf 2 Container -->
+        <div class="shelf-container" style="margin-top: 80px;">
+            <div class="trophy-grid" id="shelf-2-grid">
+                <!-- Dynamic cards sit on shelf -->
+            </div>
+            <!-- Wooden/Pink Shelf Board -->
+            <div class="shelf-board"></div>
+        </div>
+    </div>
+    <!-- Add Achievement Modal -->
+    <div class="trophy-modal-overlay" id="add-trophy-modal">
+        <div class="add-trophy-card">
+            <button class="close-trophy-modal" id="close-trophy-modal">✖</button>
+            <h2>👑 Record an Achievement 👑</h2>
+            <p style="font-size: 0.85rem; color: #b58095; margin-bottom: 20px;">Polishing another crown! Add a new trophy to your shelf.</p>
+            
+            <form id="add-trophy-form" onsubmit="event.preventDefault();">
+                <div class="form-group">
+                    <label for="tro-title">Achievement Title:</label>
+                    <input type="text" id="tro-title" placeholder="e.g. Mastered Javascript, Won Hackathon..." required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label for="tro-date">Date Achieved:</label>
+                    <input type="text" id="tro-date" placeholder="e.g. May 2026..." required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label for="tro-type">Trophy Icon Theme:</label>
+                    <select id="tro-type">
+                        <option value="images/trophy1.png">Golden Princess Trophy (trophy1.png)</option>
+                        <option value="images/trophy2.png">Pink Crown Star Trophy (trophy2.png)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tro-desc">Description of Milestone:</label>
+                    <textarea id="tro-desc" rows="3" placeholder="Detail your hard work and what this achievement represents..." required></textarea>
+                </div>
+                
+                <button type="submit" class="place-trophy-btn">Place on Shelf! 🏆</button>
+            </form>
+        </div>
+    </div>
+    <!-- JS files -->
+    <script src="js/achievements.js"></script>
+</body>
+</html>
