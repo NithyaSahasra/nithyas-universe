@@ -1,0 +1,262 @@
+/*
+ * Nithya's Universe - Achievements Stylesheet
+ */
+body {
+    background: linear-gradient(to bottom, #FFF5F8, #FFE4EE);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+/* Confetti Canvas backdrop */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 2;
+}
+.trophy-room-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 20px 60px;
+    position: relative;
+    z-index: 10;
+}
+.page-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+.page-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.2rem;
+    color: #FF73AF;
+    margin: 0 0 10px;
+    text-shadow: 2px 2px 4px rgba(255, 115, 175, 0.2);
+}
+.page-subtitle {
+    font-size: 1.1rem;
+    color: #b58095;
+    margin: 0 0 25px;
+}
+.add-trophy-btn {
+    background: linear-gradient(135deg, #FF9CC5 0%, #FF73AF 100%);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 24px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 115, 175, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.add-trophy-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 115, 175, 0.5);
+}
+/* Shelves Room */
+.shelf-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+/* Shelf Board drawing */
+.shelf-board {
+    height: 18px;
+    background: linear-gradient(90deg, #FF9CC5, #FFC2DC, #FF9CC5);
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(255, 115, 175, 0.25), inset 0 2px 4px rgba(255, 255, 255, 0.6);
+    position: relative;
+    z-index: 10;
+    border: 1px solid rgba(255, 115, 175, 0.4);
+}
+.shelf-board::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    right: 20px;
+    height: 10px;
+    background: rgba(255, 115, 175, 0.15);
+    filter: blur(5px);
+}
+/* Grid of trophies sitting on shelf */
+.trophy-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 5;
+    margin-bottom: -4px; /* sit card directly on shelf */
+}
+/* 3D Flip Card */
+.trophy-card {
+    width: 170px;
+    height: 230px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+}
+.trophy-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+/* Card Front and Back panels */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 16px;
+    border: 2px solid rgba(255, 115, 175, 0.3);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(255, 115, 175, 0.08);
+}
+.card-front {
+    background: rgba(255, 255, 255, 0.9);
+}
+.card-back {
+    background: #FFF5F8;
+    transform: rotateY(180deg);
+    border-color: #FF73AF;
+}
+/* Trophy image glowing pulse */
+.trophy-img {
+    width: 90px;
+    height: 110px;
+    object-fit: contain;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 0 8px rgba(255, 115, 175, 0.25));
+    animation: glowPulse 2.5s infinite alternate;
+}
+@keyframes glowPulse {
+    0% { filter: drop-shadow(0 0 5px rgba(255, 115, 175, 0.2)); transform: scale(1); }
+    100% { filter: drop-shadow(0 0 15px rgba(255, 115, 175, 0.6)); transform: scale(1.04); }
+}
+.trophy-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #FF73AF;
+    margin: 0;
+    line-height: 1.2;
+}
+/* Back content formatting */
+.trophy-back-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #FF73AF;
+    margin: 0 0 4px;
+}
+.trophy-date {
+    font-size: 0.75rem;
+    color: #b58095;
+    margin: 0 0 10px;
+    font-weight: 600;
+}
+.trophy-desc {
+    font-family: 'Caveat', cursive;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    color: #5d4a51;
+    margin: 0;
+    overflow-y: auto;
+    max-height: 110px;
+}
+/* Shelf spacing for responsive */
+@media(max-width: 600px) {
+    .trophy-card {
+        width: 140px;
+        height: 200px;
+    }
+    .trophy-img {
+        width: 70px;
+        height: 90px;
+    }
+}
+/* Modal formatting */
+.trophy-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(93, 74, 81, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+.trophy-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.add-trophy-card {
+    background: #FFF5F8;
+    border: 5px solid #FFC2DC;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 440px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    transform: scale(0.8);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.trophy-modal-overlay.active .add-trophy-card {
+    transform: scale(1);
+}
+.close-trophy-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #FF9CC5;
+    transition: color 0.3s;
+}
+.close-trophy-modal:hover {
+    color: #FF73AF;
+}
+.place-trophy-btn {
+    width: 100%;
+    padding: 12px;
+    background: #FF73AF;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 115, 175, 0.3);
+    transition: background 0.3s, transform 0.2s;
+}
+.place-trophy-btn:hover {
+    background: #FF9CC5;
+    transform: translateY(-2px);
+}
