@@ -1,0 +1,327 @@
+/*
+ * Nithya's Universe - Letters Stylesheet
+ */
+body {
+    background: radial-gradient(circle at center, #FFF5F8, #FFE4EE, #FFD6E8);
+    min-height: 100vh;
+}
+.letters-desk {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 20px 40px;
+}
+.page-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.page-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.2rem;
+    color: #FF73AF;
+    margin: 0 0 10px;
+    text-shadow: 2px 2px 4px rgba(255, 115, 175, 0.2);
+}
+.page-subtitle {
+    font-size: 1.1rem;
+    color: #b58095;
+    margin: 0 0 25px;
+}
+.write-letter-btn {
+    background: linear-gradient(135deg, #FF9CC5 0%, #FF73AF 100%);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 24px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 115, 175, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.write-letter-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 115, 175, 0.5);
+}
+/* Envelopes Rack Grid */
+.envelope-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 50px 30px;
+    padding: 20px 10px;
+    justify-items: center;
+}
+/* CSS Envelope Container */
+.envelope-container {
+    position: relative;
+    width: 220px;
+    height: 140px;
+    background: #FFD6E8;
+    border-radius: 6px;
+    box-shadow: 0 8px 20px rgba(255, 115, 175, 0.15);
+    cursor: pointer;
+    transform-style: preserve-3d;
+    perspective: 800px;
+    transition: transform 0.4s;
+}
+.envelope-container:hover {
+    transform: translateY(-10px) rotate(-1deg);
+    box-shadow: 0 15px 30px rgba(255, 115, 175, 0.3);
+}
+/* Top Fold Flap */
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 110px solid transparent;
+    border-right: 110px solid transparent;
+    border-top: 70px solid #FF9CC5;
+    transform-origin: top center;
+    transition: transform 0.4s ease;
+    z-index: 4;
+}
+/* Pocket Body of Envelope */
+.envelope-pocket {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 110px solid #FFE4EE;
+    border-right: 110px solid #FFE4EE;
+    border-bottom: 70px solid #FFC2DC;
+    border-top: 70px solid transparent;
+    border-radius: 0 0 6px 6px;
+    z-index: 3;
+}
+/* Letter Paper hiding inside */
+.envelope-inner-paper {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    right: 15px;
+    height: 100px;
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 2;
+    transition: transform 0.4s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.envelope-inner-paper p {
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #FF73AF;
+}
+.envelope-inner-paper span {
+    font-size: 0.75rem;
+    color: #b58095;
+    margin-top: 5px;
+}
+/* Wax Seal decoration */
+.wax-seal {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 32px;
+    background: #FF73AF;
+    border-radius: 50%;
+    z-index: 5;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.85rem;
+    transition: transform 0.3s;
+}
+/* Opening Envelope Animation Triggers */
+.envelope-container.opening .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 1; /* Hide behind paper when flipped open */
+}
+.envelope-container.opening .envelope-inner-paper {
+    transform: translateY(-70px);
+    z-index: 3;
+}
+.envelope-container.opening .wax-seal {
+    transform: translateX(-50%) translateY(30px) scale(0.8);
+    opacity: 0;
+}
+/* Letter Reading Sheet Overlay */
+.letter-reading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(93, 74, 81, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+.letter-reading-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.close-letter-btn {
+    background: #FF73AF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: white;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+.letter-reading-overlay.active .close-letter-btn {
+    transform: translateY(0);
+    opacity: 1;
+}
+/* Letter Sheet Paper Styling */
+.letter-paper {
+    background: #fffdf9; /* tea-stained scroll colors */
+    border: 1px solid #e0d5c1;
+    border-radius: 4px;
+    width: 90%;
+    max-width: 580px;
+    height: 520px;
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    overflow-y: auto;
+    font-family: 'Caveat', cursive;
+    font-size: 1.6rem;
+    color: #53453f;
+    line-height: 1.6;
+    text-align: left;
+    transform: translateY(30px) rotate(-1deg);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    /* Lined page gradient */
+    background-image: repeating-linear-gradient(transparent, transparent 33px, #f2e7d5 33px, #f2e7d5 34px);
+}
+.letter-reading-overlay.active .letter-paper {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+}
+.letter-date {
+    text-align: right;
+    font-size: 1.1rem;
+    color: #8c7870;
+    margin-bottom: 20px;
+}
+.letter-salutation {
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #FF73AF;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+}
+.letter-body {
+    min-height: 220px;
+    white-space: pre-wrap;
+    margin-bottom: 25px;
+}
+.letter-signature {
+    text-align: right;
+    color: #FF73AF;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    line-height: 1.2;
+}
+.sign-name {
+    font-weight: 700;
+}
+/* Write Letter Modal specifics */
+.write-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(93, 74, 81, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+.write-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.write-card {
+    background: #FFF5F8;
+    border: 5px solid #FFC2DC;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 440px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    transform: scale(0.8);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.write-modal-overlay.active .write-card {
+    transform: scale(1);
+}
+.close-write-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #FF9CC5;
+    transition: color 0.3s;
+}
+.close-write-modal:hover {
+    color: #FF73AF;
+}
+.seal-letter-btn {
+    width: 100%;
+    padding: 12px;
+    background: #FF73AF;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 115, 175, 0.3);
+    transition: background 0.3s, transform 0.2s;
+}
+.seal-letter-btn:hover {
+    background: #FF9CC5;
+    transform: translateY(-2px);
+}
