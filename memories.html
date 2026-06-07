@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nithya's Universe - Memory Wall</title>
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/memories.css">
+    <!-- JS files -->
+    <script src="js/global.js"></script>
+</head>
+<body>
+    <div class="memories-container">
+        <header class="page-header reveal">
+            <h1 class="page-title">📸 Nithya's Memory Wall</h1>
+            <p class="page-subtitle">A polaroid gallery of magical moments frozen in time.</p>
+            
+            <!-- Button to add a new memory -->
+            <button class="add-memory-btn" id="open-add-modal-btn">✨ Add Memory ✨</button>
+        </header>
+        <!-- Clotheslines Room -->
+        <div class="polaroid-room">
+            <!-- Line 1 -->
+            <div class="clothesline-container">
+                <div class="string"></div>
+                <div class="polaroid-grid" id="line-1-grid">
+                    <!-- Dynamic or static polaroids hang here -->
+                </div>
+            </div>
+            <!-- Line 2 -->
+            <div class="clothesline-container" style="margin-top: 80px;">
+                <div class="string"></div>
+                <div class="polaroid-grid" id="line-2-grid">
+                    <!-- Dynamic or static polaroids hang here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scrapbook Details Modal -->
+    <div class="scrapbook-modal-overlay" id="detail-modal">
+        <div class="scrapbook-modal">
+            <button class="close-scrapbook" id="close-detail-modal">✖</button>
+            <div class="modal-decor-tape"></div>
+            
+            <div class="scrapbook-layout">
+                <!-- Photo Side -->
+                <div class="scrapbook-photo-pane">
+                    <img src="" alt="Memory Image" id="modal-photo">
+                    <div class="sticker-on-photo sticker-star"></div>
+                </div>
+                
+                <!-- Story Side -->
+                <div class="scrapbook-story-pane">
+                    <div class="scrapbook-decor-heart">💖</div>
+                    <h2 class="scrapbook-title" id="modal-title">Memory Title</h2>
+                    <p class="scrapbook-date" id="modal-date">Date of Memory</p>
+                    <div class="scrapbook-divider">🌸 🌸 🌸</div>
+                    <p class="scrapbook-story-text" id="modal-story">Memory details go here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add Memory Form Modal -->
+    <div class="scrapbook-modal-overlay" id="add-modal">
+        <div class="add-memory-card">
+            <button class="close-scrapbook" id="close-add-modal">✖</button>
+            <h2>🎀 Log a New Memory 🎀</h2>
+            <p style="font-size: 0.85rem; color: #b58095;">Hang a new polaroid on Nithya's clothesline!</p>
+            
+            <form id="add-memory-form" onsubmit="event.preventDefault();">
+                <div class="form-group">
+                    <label for="mem-title">Memory Title:</label>
+                    <input type="text" id="mem-title" placeholder="e.g. Picnic at the Park..." required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label for="mem-date">Date:</label>
+                    <input type="text" id="mem-date" placeholder="e.g. June 2026..." required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label for="mem-img">Select Photo:</label>
+                    <select id="mem-img" required>
+                        <option value="images/polaroid1.jpg">Cherry Blossoms (polaroid1.jpg)</option>
+                        <option value="images/polaroid2.jpg">Pink Cafe (polaroid2.jpg)</option>
+                        <option value="images/polaroid3.jpg">Starry Sky (polaroid3.jpg)</option>
+                        <option value="images/polaroid4.jpg">Cute Kitty (polaroid4.jpg)</option>
+                        <option value="images/polaroid5.jpg">Magical Sunset (polaroid5.jpg)</option>
+                        <option value="images/polaroid6.jpg">Glitter Party (polaroid6.jpg)</option>
+                        <option value="images/memory1.jpg">Graduation (memory1.jpg)</option>
+                        <option value="images/memory2.jpg">First Coding Project (memory2.jpg)</option>
+                        <option value="images/memory3.jpg">With Besties (memory3.jpg)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mem-story">The Story / Memory Details:</label>
+                    <textarea id="mem-story" rows="4" placeholder="Write down the details of this special day..." required></textarea>
+                </div>
+                
+                <button type="submit" class="save-memory-btn">Hang Photo! 🌸</button>
+            </form>
+        </div>
+    </div>
+    <!-- JS files -->
+    <script src="js/memories.js"></script>
+</body>
+</html>
