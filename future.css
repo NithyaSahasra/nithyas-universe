@@ -1,0 +1,302 @@
+/*
+ * Nithya's Universe - Dreams Page (Pinterest Board) Stylesheet
+ */
+body {
+    background-color: #FFF5F8;
+    position: relative;
+    overflow-x: hidden;
+}
+/* Floating Clouds Background */
+.clouds-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+}
+.dream-cloud {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.25;
+}
+.dc-1 {
+    width: 250px;
+    height: 125px;
+    background-image: url('../images/cloud1.png');
+    top: 10%;
+    left: 5%;
+    animation: floatingCloud 20s ease-in-out infinite alternate;
+}
+.dc-2 {
+    width: 300px;
+    height: 150px;
+    background-image: url('../images/cloud2.png');
+    bottom: 15%;
+    right: 5%;
+    animation: floatingCloud 25s ease-in-out infinite alternate-reverse;
+}
+.dc-3 {
+    width: 180px;
+    height: 90px;
+    background-image: url('../images/cloud1.png');
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: floatingCloud 30s ease-in-out infinite alternate;
+}
+@keyframes floatingCloud {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, -20px) scale(1.08); }
+}
+/* Dreams Page Layout */
+.dreams-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px 40px;
+    position: relative;
+    z-index: 10;
+}
+.page-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.page-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.2rem;
+    color: #FF73AF;
+    margin: 0 0 10px;
+    text-shadow: 2px 2px 4px rgba(255, 115, 175, 0.2);
+}
+.page-subtitle {
+    font-size: 1.1rem;
+    color: #b58095;
+    margin: 0 0 25px;
+}
+.add-dream-btn {
+    background: linear-gradient(135deg, #FF9CC5 0%, #FF73AF 100%);
+    border: none;
+    border-radius: 25px;
+    padding: 11px 26px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 115, 175, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.add-dream-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 115, 175, 0.5);
+}
+/* Masonry Columns */
+.dream-masonry {
+    column-count: 3;
+    column-gap: 25px;
+    width: 100%;
+}
+/* Pinterest style cards */
+.dream-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    break-inside: avoid;
+    box-shadow: 0 8px 20px rgba(255, 115, 175, 0.1);
+    border: 2px solid rgba(255, 194, 220, 0.3);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+/* Floating movements */
+.float-1 { animation: floatCard 5s ease-in-out infinite alternate; }
+.float-2 { animation: floatCard 6s ease-in-out infinite alternate-reverse; }
+.float-3 { animation: floatCard 7s ease-in-out infinite alternate; }
+@keyframes floatCard {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+.dream-card:hover {
+    transform: translateY(-15px) scale(1.03) !important;
+    box-shadow: 0 15px 30px rgba(255, 115, 175, 0.25);
+    border-color: #FF73AF;
+    animation-play-state: paused;
+}
+.dream-card-img-wrapper {
+    position: relative;
+    width: 100%;
+}
+.dream-card img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    max-height: 250px;
+}
+.dream-category-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(255, 245, 248, 0.85);
+    color: #FF73AF;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    backdrop-filter: blur(4px);
+}
+/* Card Pin badge */
+.dream-pin {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.2rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+.dream-content {
+    padding: 20px;
+    text-align: left;
+    background: linear-gradient(180deg, #ffffff 0%, #FFF5F8 100%);
+    position: relative;
+}
+.dream-card-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #FF73AF;
+    margin: 0 0 10px 0;
+}
+.dream-card-desc {
+    font-size: 0.9rem;
+    color: #5d4a51;
+    line-height: 1.5;
+    margin: 0;
+}
+/* Delete dream sticker action */
+.delete-dream-sticker {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #b58095;
+    opacity: 0.3;
+    transition: all 0.3s;
+}
+.dream-card:hover .delete-dream-sticker {
+    opacity: 0.8;
+}
+.delete-dream-sticker:hover {
+    color: #FF73AF;
+    transform: scale(1.2);
+}
+/* Pinterest Modal Specifics */
+.dream-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(93, 74, 81, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+.dream-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.add-dream-card {
+    background: #FFF5F8;
+    border: 5px solid #FFC2DC;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 440px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    transform: scale(0.8);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.dream-modal-overlay.active .add-dream-card {
+    transform: scale(1);
+}
+.close-dream-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #FF9CC5;
+    transition: color 0.3s;
+}
+.close-dream-modal:hover {
+    color: #FF73AF;
+}
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #FF73AF;
+    margin-bottom: 5px;
+}
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    border: 2px solid #FFC2DC;
+    border-radius: 8px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    transition: border 0.3s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: #FF73AF;
+}
+.pin-dream-btn {
+    width: 100%;
+    padding: 12px;
+    background: #FF73AF;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 115, 175, 0.3);
+    transition: background 0.3s, transform 0.2s;
+}
+.pin-dream-btn:hover {
+    background: #FF9CC5;
+    transform: translateY(-2px);
+}
+/* Responsive Grid Columns */
+@media(max-width: 900px) {
+    .dream-masonry {
+        column-count: 2;
+    }
+}
+@media(max-width: 600px) {
+    .dream-masonry {
+        column-count: 1;
+    }
+}
