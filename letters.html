@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nithya's Universe - Letters</title>
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/letters.css">
+    <!-- JS files -->
+    <script src="js/global.js"></script>
+</head>
+<body>
+    <div class="letters-desk">
+        <header class="page-header reveal">
+            <h1 class="page-title">💌 Sealed Letters</h1>
+            <p class="page-subtitle">A collection of letters written from the soul. Click to open and read.</p>
+            <button class="write-letter-btn" id="open-write-btn">✍️ Write a Letter ✍️</button>
+        </header>
+        <!-- Envelope Rack Grid -->
+        <div class="envelope-grid" id="envelope-rack">
+            <!-- Dynamic envelopes render here -->
+        </div>
+    </div>
+    <!-- Letter Reading Overlay -->
+    <div class="letter-reading-overlay" id="read-overlay">
+        <!-- Close overlay -->
+        <button class="close-letter-btn" id="close-read-btn">✖ Close Letter</button>
+        
+        <div class="letter-paper" id="letter-paper">
+            <div class="letter-date" id="letter-view-date">Date</div>
+            <div class="letter-salutation" id="letter-view-to">Dear Recipient,</div>
+            
+            <div class="letter-body" id="letter-view-body">
+                <!-- Handwritten typewriter text goes here -->
+            </div>
+            
+            <div class="letter-signature">
+                With love,<br>
+                <span class="sign-name">Nithya 🌸</span>
+            </div>
+        </div>
+    </div>
+    <!-- Write Letter Modal -->
+    <div class="write-modal-overlay" id="write-modal">
+        <div class="write-card">
+            <button class="close-write-modal" id="close-write-btn">✖</button>
+            <h2>💌 Write a New Letter 💌</h2>
+            <p style="font-size: 0.85rem; color: #b58095; margin-bottom: 20px;">Write down your thoughts and seal it in an envelope.</p>
+            
+            <form id="write-letter-form" onsubmit="event.preventDefault();">
+                <div class="form-group">
+                    <label for="let-to">Recipient / Title:</label>
+                    <input type="text" id="let-to" placeholder="e.g. My Future Self, Bestie..." required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label for="let-date">Date:</label>
+                    <input type="text" id="let-date" placeholder="e.g. June 2026..." required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label for="let-body">The Letter Content:</label>
+                    <textarea id="let-body" rows="6" placeholder="Write your heartfelt message here..." required></textarea>
+                </div>
+                
+                <button type="submit" class="seal-letter-btn">Seal & Save! 🎀</button>
+            </form>
+        </div>
+    </div>
+    <!-- JS files -->
+    <script src="js/letters.js"></script>
+</body>
+</html>
